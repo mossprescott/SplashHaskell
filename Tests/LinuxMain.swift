@@ -3,5 +3,5 @@ import XCTest
 import SplashHaskellTests
 
 var tests = [XCTestCaseEntry]()
-tests += SplashHaskellTests.allTests()
+tests += HaskellTests.allTests()
 XCTMain(tests)
