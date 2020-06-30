@@ -54,7 +54,9 @@ public struct HaskellGrammar: Grammar {
 private extension HaskellGrammar {
     static let keywords: Set<String> = [
         "type", "data", "where", "let", "in", "do", "class", "module",
-        "deriving", "instance",
+        "deriving", "instance", "import", "if", "then", "else", "case", "of",
+        "infix", "infixl", "infixr", "hiding", "foreign", "forall", "newtype",
+        "type", "family", "qualified", "as",
     ]
 
     struct PreprocessingRule: SyntaxRule {
