@@ -110,7 +110,31 @@ x = 1  -- Hey!
             .token("-}", .comment)
         ])
     }
-        
+
+    func testOperators() {
+        let components = highlighter.highlight("""
+do
+  x <- generate $ arbitrary @Int
+""")
+
+        XCTAssertEqual(components, [
+            .token("do", .keyword),
+            .whitespace("\n  "),
+            .plainText("x"),
+            .whitespace(" "),
+            .plainText("<-"),
+            .whitespace(" "),
+            .plainText("generate"),
+            .whitespace(" "),
+            .plainText("$"),
+            .whitespace(" "),
+            .plainText("arbitrary"),
+            .whitespace(" "),
+            .plainText("@"),
+            .token("Int", .type)
+        ])
+    }
+
     func testAllTestsRunOnLinux() {
         XCTAssertTrue(TestCaseVerifier.verifyLinuxTests((type(of: self)).allTests))
     }
@@ -123,6 +147,7 @@ extension HaskellTests {
             ("testOption", testOption),
             ("testRecord", testRecord),
             ("testComments", testComments),
+            ("testOperators", testOperators),
         ]
     }
 }

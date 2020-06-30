@@ -17,9 +17,6 @@ public struct HaskellGrammar: Grammar {
         var delimiters = CharacterSet.alphanumerics.inverted
         delimiters.remove("_")
         delimiters.remove("\"")
-//        delimiters.remove("#")
-        delimiters.remove("@")
-        delimiters.remove("$")
         self.delimiters = delimiters
 
         syntaxRules = [
